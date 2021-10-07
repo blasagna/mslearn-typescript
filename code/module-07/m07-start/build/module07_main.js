@@ -1,4 +1,6 @@
 "use strict";
+/*  Module 7: Working with external libraries
+    Lab Start */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -19,9 +21,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const greetings_module_js_1 = require("./greetings_module.js"); // imports a single function in the module
-const allGreetingFunctions = __importStar(require("./greetings_module.js")); // imports all exported components in the module
-const greetings_utilities_module_js_1 = require("./greetings-utilities_module.js");
-(0, greetings_module_js_1.returnGreeting)('Hola!'); // Displays 'The message from Greetings_module is Hola!'
-allGreetingFunctions.returnGreeting('Bonjour'); // Displays 'The message from Greetings_module is Bonjour!'
-(0, greetings_utilities_module_js_1.returnGreeting)('Ciao!'); // Displays 'The message from GreetingsWithLength_module is Ciao! It is 5 characters long.'
+/*  Add the import statement. */
+const LoanPrograms = __importStar(require("./module07_loan-programs"));
+/*  Update the function calls. */
+let interestOnlyPayment = LoanPrograms.calculateInterestOnlyLoanPayment({ principle: 30000, interestRate: 5 });
+let conventionalLoanPayment = LoanPrograms.calculateConventionalLoanPayment({ principle: 30000, interestRate: 5, months: 180 });
+console.log(interestOnlyPayment); //* Returns "The interest only loan payment is 125.00" 
+console.log(conventionalLoanPayment); //* Returns "The conventional loan payment is 237.24"
